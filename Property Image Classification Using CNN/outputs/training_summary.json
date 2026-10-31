@@ -1,0 +1,63 @@
+{
+  "model": "EstateIQ_Room_CNN_v2",
+  "training_backend": "PyTorch 2.10.0+cpu + Keras 3.13.2 export",
+  "image_size": 96,
+  "class_names": [
+    "Bathroom",
+    "Bedroom",
+    "Dinning",
+    "Kitchen",
+    "Livingroom"
+  ],
+  "raw_images": 5250,
+  "usable_images": 5174,
+  "train_images": 3621,
+  "validation_images": 776,
+  "test_images": 777,
+  "best_epoch": 7,
+  "best_validation_loss": 1.1789997177025706,
+  "test_accuracy": 0.5366795366795367,
+  "test_macro_f1": 0.5308980950656204,
+  "test_weighted_f1": 0.5260418986141598,
+  "per_class": {
+    "Bathroom": {
+      "precision": 0.46853146853146854,
+      "recall": 0.7444444444444445,
+      "f1": 0.575107296137339,
+      "support": 90
+    },
+    "Bedroom": {
+      "precision": 0.5728155339805825,
+      "recall": 0.3172043010752688,
+      "f1": 0.4083044982698962,
+      "support": 186
+    },
+    "Dinning": {
+      "precision": 0.6397849462365591,
+      "recall": 0.695906432748538,
+      "f1": 0.6666666666666666,
+      "support": 171
+    },
+    "Kitchen": {
+      "precision": 0.5514018691588785,
+      "recall": 0.4154929577464789,
+      "f1": 0.4738955823293173,
+      "support": 142
+    },
+    "Livingroom": {
+      "precision": 0.47478991596638653,
+      "recall": 0.601063829787234,
+      "f1": 0.5305164319248826,
+      "support": 188
+    }
+  },
+  "duplicate_groups_audited": 58,
+  "unreadable_files": 0,
+  "keras_export_max_probability_difference": 2.980232238769531e-07,
+  "split_seed": 42,
+  "original_model_same_test_accuracy": 0.416988416988417,
+  "original_model_same_test_macro_f1": 0.374628332199702,
+  "original_model_livingroom_recall": 0.2872340425531915,
+  "accuracy_improvement_percentage_points": 11.97,
+  "livingroom_recall_improvement_percentage_points": 31.38
+}

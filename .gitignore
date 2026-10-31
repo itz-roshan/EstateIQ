@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.vscode/
+.streamlit/cache/
+*.pyc
+*.zip
+*.rar
+
+# Large dataset - keep locally
+Customer_Review_Sentiment_Analysis_RNN/data/Reviews.csv

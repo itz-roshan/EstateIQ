@@ -1,0 +1,2 @@
+method,rows_total,train_rows,test_rows,MAE_INR,RMSE_INR,R2,MedianAE_INR,MAPE_percent,amenity_unknown_percent
+Comparable median price per sq ft × area,32963,28018,4945,5749954.936945554,19167401.723998237,0.2520580730795664,1686830.738885764,47.32534459298123,69.38082092042593
