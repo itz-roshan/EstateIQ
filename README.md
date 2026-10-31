@@ -1,75 +1,238 @@
-# EstateIQ — AI-Powered Real Estate Intelligence Platform
+# 🏡 EstateIQ — AI-Powered Real Estate Intelligence Platform
 
-EstateIQ is a local Streamlit learning project that combines property price estimation, room-photo classification, demand forecasting, sentiment analysis and dataset exploration. The existing dashboard layout, theme and navigation are preserved in this updated package.
+<p align="center">
+  <b>Turning Real Estate Data into Smarter Decisions with Artificial Intelligence</b>
+</p>
 
-## Run on Windows (Python 3.12)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Streamlit-Interactive%20UI-FF4B4B?logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/TensorFlow-Deep%20Learning-FF6F00?logo=tensorflow&logoColor=white" />
+  <img src="https://img.shields.io/badge/Machine%20Learning-Enabled-brightgreen" />
+  <img src="https://img.shields.io/badge/Status-Active-success" />
+</p>
 
-Open PowerShell in this folder and install the pinned runtime packages:
+<p align="center">
+  <a href="https://github.com/itz-roshan/EstateIQ">GitHub Repository</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-installation--setup">Installation</a> •
+  <a href="#-project-structure">Project Structure</a>
+</p>
 
-```powershell
-py -3.12 -m pip install -r requirements.txt
+---
+
+## 🌟 Overview
+
+**EstateIQ** is an AI-powered real estate intelligence platform designed to explore property-related data and demonstrate how Machine Learning and Deep Learning can support real estate decision-making.
+
+The platform brings multiple AI-powered modules together in one interactive Streamlit application, covering property price estimation, property image classification, demand forecasting, and customer review sentiment analysis.
+
+Instead of relying only on traditional property information, EstateIQ explores how data-driven techniques can provide useful insights into the real estate market.
+
+## ✨ Features
+
+| Module | Description | Technology |
+|---|---|---|
+| 🇺🇸 US Home Estimate | Estimates historical home prices using property features | Machine Learning |
+| 🇮🇳 India Property Estimate | Explores property prices using locality-based comparable listings and ANN | Python, ANN |
+| 🏠 Room Photo Checker | Classifies room images into different room categories | CNN, TensorFlow |
+| 📈 Demand Forecast | Forecasts future property demand using historical data | Time Series / Deep Learning |
+| 💬 Review Sentiment | Analyzes customer reviews and identifies sentiment | RNN, NLP |
+| 📊 Explore Datasets | Helps explore and understand datasets through interactive analysis | Pandas, Streamlit |
+
+## 🧠 AI & Machine Learning Modules
+
+### 1. 🇺🇸 US Home Price Estimation
+- Uses historical King County housing data.
+- Takes property-related features as input.
+- Applies a trained machine learning pipeline to estimate historical property prices.
+- Includes renovation-year handling and input validation.
+
+### 2. 🇮🇳 India Property Intelligence
+- Explores property prices based on location and property characteristics.
+- Uses locality-level comparable listing information.
+- Provides indicative price references with confidence limitations.
+- Includes an ANN-based academic model.
+
+### 3. 🏠 Property Image Classification
+- Uses a Convolutional Neural Network (CNN).
+- Analyzes uploaded room images.
+- Predicts room categories such as bedroom, living room, and dining room.
+- Includes uncertainty handling for low-confidence predictions.
+
+### 4. 📈 Property Demand Forecasting
+- Explores historical demand patterns.
+- Applies forecasting techniques to understand possible future trends.
+- Presents results through visualizations.
+
+### 5. 💬 Customer Review Sentiment Analysis
+- Uses Natural Language Processing (NLP).
+- Applies a Recurrent Neural Network (RNN).
+- Processes customer review text.
+- Classifies sentiment into relevant categories.
+
+## 🛠️ Tech Stack
+
+**Programming & Development**
+- Python
+- Jupyter Notebook
+- VS Code
+
+**Machine Learning & Deep Learning**
+- TensorFlow / Keras
+- Scikit-learn
+- ANN
+- CNN
+- RNN
+
+**Data Analysis**
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+
+**Visualization & Application**
+- Streamlit
+- Plotly
+
+**Tools**
+- Git
+- GitHub
+
+## 📂 Project Structure
+
+```text
+EstateIQ/
+│
+├── .streamlit/
+│
+├── Customer_Review_Sentiment_Analysis_RNN/
+│
+├── Location Based Price Prediction using ANN/
+│
+├── Property Image Classification Using CNN/
+│
+├── Property demand forecast/
+│
+├── Property prize prediction/
+│
+├── app.py
+├── india_comparable.py
+│
+├── requirements.txt
+├── run_app.bat
+│
+├── validate_india_module.py
+├── validate_model_assets.py
+├── validate_project.py
+│
+├── APP_REPAIR_REPORT.md
+├── VALIDATION_REPORT.txt
+└── README.md
 ```
 
-Then launch Streamlit:
+## ⚙️ Installation & Setup
 
-```powershell
-py -3.12 -m streamlit run app.py --global.developmentMode=false --server.port=8502 --browser.serverPort=8502
+### Prerequisites
+
+- Python 3.12
+- Git
+- VS Code (recommended)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/itz-roshan/EstateIQ.git
 ```
 
-Open `http://localhost:8502` and keep the terminal running while you use the app.
+### Step 2: Navigate to the Project Folder
 
-### If you use the shared package folder from the earlier setup
-
-The app can run without a virtual environment. Set the package folder for the current PowerShell session, then start Streamlit:
-
-```powershell
-$env:PYTHONPATH = "C:\EstateIQ_Packages"
-py -3.12 -m streamlit run app.py --global.developmentMode=false --server.port=8502 --browser.serverPort=8502
+```bash
+cd EstateIQ
 ```
 
-The `requirements.txt` pins PyArrow to a NumPy-1.x-compatible version to avoid the earlier `pyarrow requires NumPy 2.0 or newer` conflict.
+### Step 3: Create a Virtual Environment
 
-## Room Photo Checker update
-
-The CNN model and the inference preprocessing have been updated together. The model expects an RGB image resized to **96 × 96**, with raw pixel values from 0 to 255; the saved model performs its own 1/255 scaling. The app sends images in that same format.
-
-The output order is fixed as:
-
-1. Bathroom
-2. Bedroom
-3. Dinning (shown in the interface as Dining room)
-4. Kitchen
-5. Livingroom (shown as Living room)
-
-A room label is confirmed only when the top model score is at least 62% and leads the second choice by at least 10 percentage points. Otherwise the app displays **Uncertain · possible [room]**. Model scores are not calibrated probabilities.
-
-The US renovation input is a real calendar year: select **Never renovated** for homes that have not been renovated, or choose a year between construction and sale. Do not enter `1` as a Yes/No value.
-
-See `Property Image Classification Using CNN/outputs/TRAINING_REPORT.md` and `MODEL_CARD.md` for the dataset audit and independent test results. The current model is an academic/demo classifier, not a guaranteed room recognizer. For example, the held-out `living_31.jpg` sample is misclassified as Dining at 53.1%, so the app intentionally labels it uncertain rather than pretending to be sure.
-
-To run the local structural/inference check after installing dependencies:
-
-```powershell
-py -3.12 validate_model_assets.py
+```bash
+py -3.12 -m venv .venv
 ```
 
-## Project folders
+### Step 4: Activate the Environment
 
-- `Property Image Classification Using CNN/` — room images, trained model, notebook and test outputs.
-- `Property prize prediction/` — general house-price prediction module.
-- `Location Based Price Prediction using ANN/` — India location-based price estimation module.
-- `Property demand forecast/` — demand forecasting module and sample data.
-- `Customer_Review_Sentiment_Analysis_RNN/` — customer review sentiment module.
+**Windows PowerShell:**
 
-## Latest application safeguards
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
-- Model and preprocessor caches are keyed by file path, modification time and file size, so replacing a model does not silently keep using the old cached object.
-- Small-batch inference uses direct Keras calls instead of the slower `model.predict()` data-adapter path.
-- US price output is checked against the training-data range; implausible values are blocked instead of shown as astronomical prices.
-- The India ANN is clearly marked as experimental because its held-out R² is negative and it underperforms a median baseline.
+### Step 5: Install Dependencies
 
-See `APP_REPAIR_REPORT.md` for the root-cause checks and validation results.
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-## Important note
+### Step 6: Run the Application
 
-The project is educational. Historical/synthetic data and saved model scores are not professional real-estate valuation advice. Predictions and classifications should be interpreted with the limitations documented in each module.
+```bash
+python -m streamlit run app.py
+```
+
+Open the local URL displayed in your terminal, usually:
+
+```text
+http://localhost:8501
+```
+
+## 📊 Project Highlights
+
+- Multiple AI and Deep Learning modules integrated into one application.
+- Interactive web interface built using Streamlit.
+- Data preprocessing and model-based prediction workflows.
+- Visual exploration of real estate datasets.
+- Input validation and uncertainty-aware predictions.
+- Modular project structure for easier maintenance.
+
+## ⚠️ Important Notes
+
+- US Home Estimate uses historical King County housing data and should not be treated as a current market valuation.
+- India Property Estimate provides indicative comparable-based references. Its ANN model has limitations and should not be considered a reliable professional valuation tool.
+- Room Photo Checker is an academic image-classification model. Predictions may be uncertain.
+- The Review Sentiment module requires its dataset. The large `Reviews.csv` file is not included in this GitHub repository due to its size.
+- Forecasting and prediction results depend on the available datasets and model performance.
+
+**EstateIQ is an academic and demonstration project, not a professional property valuation or investment advisory service.**
+
+## 🚀 Future Enhancements
+
+- Integration of live real estate market data.
+- Improved prediction accuracy with larger and better-quality datasets.
+- Interactive geographical property visualizations.
+- More advanced demand forecasting models.
+- Enhanced user experience and reporting features.
+- Cloud deployment and scalable model serving.
+
+## 👨‍💻 Developer
+
+**Roshan Kumar**
+
+Master of Computer Applications (MCA)  
+Invertis University, Bareilly, Uttar Pradesh
+
+Interested in Data Analytics, Machine Learning, Deep Learning, and AI-powered applications.
+
+<p align="center">
+  <a href="https://github.com/itz-roshan">
+    <img src="https://img.shields.io/badge/GitHub-itz--roshan-181717?style=for-the-badge&logo=github" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  ⭐ If you find this project interesting, consider giving it a star!
+</p>
+
+<p align="center">
+  <b>EstateIQ — Making Real Estate Smarter with AI. 🏡</b>
+</p>
